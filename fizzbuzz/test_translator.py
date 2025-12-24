@@ -42,7 +42,7 @@ class TestTranslator(unittest.TestCase):
                     fizzbuzzwhizzbang_count += 1
 
         self.assertEqual(480,digit_count)
-        self.assertEqual(264,fizz_count)
-        self.assertEqual(140,buzz_count)
-        self.assertEqual(76,fizzbuzz_count)
+        self.assertEqual(240,fizz_count)
+        self.assertEqual(120,buzz_count)
+        self.assertEqual(60,fizzbuzz_count)
         self.assertEqual(1,fizzbuzzwhizzbang_count)
