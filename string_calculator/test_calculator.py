@@ -25,3 +25,6 @@ class TestCalculator(unittest.TestCase):
 
     def test_string_calculator_returns_sum_of_negative_positive_values(self):
         self.assertEqual(string_calculator(" +5-6"), -1)
+
+    def test_string_calculator_returns_negative_positive_values_multiplied(self):
+        self.assertEqual(string_calculator("+5*-6"), -30)
