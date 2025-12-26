@@ -1,6 +1,7 @@
+from decimal import Decimal
 
 
-def string_calculator(string_number: str) -> int:
+def string_calculator(string_number: str) -> Decimal:
     tokens = tokenize(string_number)
     stack = []
     i = 0
@@ -11,10 +12,15 @@ def string_calculator(string_number: str) -> int:
             right = tokens[i + 1]
             stack.append(left * right)
             i += 2
+        elif token == '/':
+            left = stack.pop()
+            right = tokens[i + 1]
+            stack.append(left / right)
+            i += 2
         else:
             stack.append(token)
             i += 1
-    return sum(stack)
+    return Decimal(sum(stack))
 
 
 def tokenize(expression: str):
@@ -35,7 +41,7 @@ def tokenize(expression: str):
                 tokens.append(int(current_number))
                 current_number = ""
 
-            if char in "-*":
+            if char in "-*/":
                 if char == '-':
                     is_minus = True
                     continue

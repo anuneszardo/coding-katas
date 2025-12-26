@@ -1,6 +1,6 @@
 import unittest
+from decimal import Decimal
 
-from leap_years.calculator import calculate_leap_year
 from string_calculator.calculator import string_calculator
 
 
@@ -28,3 +28,10 @@ class TestCalculator(unittest.TestCase):
 
     def test_string_calculator_returns_negative_positive_values_multiplied(self):
         self.assertEqual(string_calculator("+5*-6"), -30)
+
+    def test_string_calculator_returns_values_divided(self):
+        self.assertEqual(string_calculator("15/5"), 3)
+
+    def test_string_calculator_returns_decimals(self):
+        self.assertAlmostEqual(string_calculator("10/3"), Decimal('3.333333333333333481363069950020872056484222412109375'))
+
